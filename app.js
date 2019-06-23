@@ -42,6 +42,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 /* Cachebusting */
 app.use(require('./lib/cachebust')()); // heroku labs:enable runtime-dyno-metadata -a <<app>>
 
+/* Helpers */
+app.use(require('./lib/helpers'));
+
 app.use('/', index);
 app.use('/users', users);
 
