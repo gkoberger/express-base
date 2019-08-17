@@ -21,17 +21,18 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(
-  stylus.middleware({
-    src: path.join(__dirname, 'public'),
-    compile: (str, path) => {
-      return stylus(str)
-        .set('filename', path)
-        .set('compress', true)
-        .use(nib());
-    },
-  }),
-);
+
+const stylusSetup = stylus.middleware({
+  src: path.join(__dirname, 'public'),
+  compile: (str, path) => {
+    return stylus(str)
+      .set('filename', path)
+      .set('compress', true)
+      .use(nib());
+  },
+});
+app.use(stylusSetup);
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // optional features, uncomment to use!
