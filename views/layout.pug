@@ -10,8 +10,9 @@ html
 
     // meta(property="og:image" content=`/images/social.png?${cache}`)
     // meta(property="og:image:secure_url" content=`/images/social.png?${cache}`)
-  body
+  body(id='pg-' + pg)
     block content
 
     script(src="/javascripts/jquery.min.js")
+    script(src=`/javascripts/utils.js?${cache}`)
     script(src=`/javascripts/script.js?${cache}`)

@@ -33,6 +33,16 @@ const stylusSetup = stylus.middleware({
 });
 app.use(stylusSetup);
 
+app.use(function (req, res, next) {
+  // Hijack the render function to insert a `pg`
+  res._render = res.render;
+  res.render = function(...params) {
+    res.locals.pg = params[0];
+    return res._render.apply(this, params);
+  };
+  next();
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // optional features, uncomment to use!
