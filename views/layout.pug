@@ -8,8 +8,9 @@ html
 
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
 
-    // meta(property="og:image" content=`/images/social.png?${cache}`)
-    // meta(property="og:image:secure_url" content=`/images/social.png?${cache}`)
+    if hasSocial
+      meta(property="og:image" content=`http://${base}/images/social.png?${cache}`)
+      meta(property="og:image:secure_url" content=`https://${base}/images/social.png?${cache}`)
   body(id='pg-' + pg)
     block content
 

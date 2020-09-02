@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const stylus = require('stylus');
 const nib = require('nib');
+const fs = require('fs');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
@@ -40,6 +41,13 @@ app.use(function (req, res, next) {
     res.locals.pg = params[0];
     return res._render.apply(this, params);
   };
+  next();
+});
+
+const hasSocial = fs.existsSync('./public/images/social.png');
+app.use(function (req, res, next) {
+  res.locals.base = req.get('host');
+  res.locals.hasSocial = hasSocial;
   next();
 });
 
