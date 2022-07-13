@@ -2,4 +2,9 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to the site!
+
+  // VUE-START
+  #app(v-cloak)
+    p {{ salutation}}, {{ getName('greg') }}
+  // VUE-END
