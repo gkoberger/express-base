@@ -7,7 +7,7 @@ $.page('index', function() {
       }
     },
     methods: {
-      getName: (v) => {
+      getName: function (v) {
         return v.toUpperCase();
       }
     },
