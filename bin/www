@@ -8,6 +8,10 @@ var app = require('../app');
 var debug = require('debug')('e:server');
 var http = require('http');
 
+// SOCKET-START
+const { Server } = require('socket.io');
+// SOCKET-END
+
 /**
  * Get port from environment and store in Express.
  */
@@ -20,6 +24,12 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+
+// SOCKET-START
+const io = new Server(server);
+require('../lib/socket').load(io);
+// SOCKET-END
+
 console.log(`🛠  Serving at http://localhost:${port}`);
 
 /**

@@ -4,7 +4,17 @@ block content
   h1= title
   p Welcome to the site!
 
+  // SOCKET-START
+  div
+    button.prev &laquo;
+    div.slide(style="display:inline-block;width: 50px;text-align: center;") 0
+    button.next &raquo;
+  br
+  a(href="/5" target="_blank") Set to 5
+  // SOCKET-END
+
   // VUE-START
   #app(v-cloak)
     p {{ salutation}}, {{ getName('greg') }}
   // VUE-END
+

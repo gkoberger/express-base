@@ -13,10 +13,11 @@
     "express": "~4.14.0",
     "mongoose": "^5.2.9",
     "morgan": "~1.9.1",
-    "nib": "^1.1.2",
+    "nib": "^1.2.0",
     "nodemon": "2.0.19",
     "pug": "~2.0.0-beta6",
     "serve-favicon": "~2.3.0",
-    "stylus": "0.54.8"
+    "socket.io": "^4.7.5",
+    "stylus": "^0.64.0"
   }
 }
